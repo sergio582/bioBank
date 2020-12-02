@@ -3,17 +3,17 @@ function setColorValue($value)
 {
   switch ($value) {
     case $value >= 70:
-      return "<span style='color: #f21919;'><i class='fas fa-circle'></i></span>";
+      return "<span style='color: #78281f;'><i class='fas fa-circle'></i></span>";
     case $value >= 40:
-      return "<span style='color: #f77575;'><i class='fas fa-circle'></i></span>";
+      return "<span style='color: #e74c3c;'><i class='fas fa-circle'></i></span>";
     case $value >= 20:
-      return "<span style='color: #fbbaba;'><i class='fas fa-circle'></i></span>";
+      return "<span style='color: #f5b7b1;'><i class='fas fa-circle'></i></span>";
     case $value <= -70:
-      return "<span style='color: #1919F2;'><i class='fas fa-circle'></i></span>";
+      return "<span style='color: #1b4f72;'><i class='fas fa-circle'></i></span>";
     case $value <= -40:
-      return "<span style='color: #7575f7;'><i class='fas fa-circle'></i></span>";
+      return "<span style='color: #2980b9;'><i class='fas fa-circle'></i></span>";
     case $value <= -20:
-      return "<span style='color: #d1d1fc;'><i class='fas fa-circle'></i></span>";
+      return "<span style='color: #a9cce3;'><i class='fas fa-circle'></i></span>";
     default:
       return "<span style='color: white;'><i class='fas fa-circle'></i></span>";
   }

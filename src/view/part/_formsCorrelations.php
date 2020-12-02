@@ -6,6 +6,7 @@ function formCorrelation($datas, $collapse = FALSE, $idCollapse = NULL)
   is_array($datas) ? $datas : $datas = array($datas);
   $collapse = $collapse ? "class='row collapse' id='$idCollapse'" : "class='row'";
   echo "<form method='post' action='control/correlations'>";
+  echo "<button type='submit' class='btn btn-info' name='get_correlation'>Valider</button>";
   echo "<div $collapse>";
   foreach ($datas as $data) {
 ?>
@@ -14,7 +15,6 @@ function formCorrelation($datas, $collapse = FALSE, $idCollapse = NULL)
     </div>
 <?php
   }
-  echo "<button type='submit' class='btn btn-primary' name='get_correlation'>Submit</button>";
   echo "</form>";
   echo "</div>";
 }
