@@ -36,7 +36,7 @@ footView();
         [10, 25, 50, 100, 200, -1],
         [10, 25, 50, 100, 200, "Tout"]
       ],
-      "pageLength": -1,
+      "pageLength": 10,
       "language": {
         "paginate": {
           "next": "Suivante",
