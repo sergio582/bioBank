@@ -1,5 +1,7 @@
 <?php
-function switchFormCorrelation($datas, $collapse = FALSE, $idCollapse = NULL)
+include_once 'src/view/interface/formInterface.php';
+
+function formCorrelation($datas, $collapse = FALSE, $idCollapse = NULL)
 {
   is_array($datas) ? $datas : $datas = array($datas);
   $collapse = $collapse ? "class='row collapse' id='$idCollapse'" : "class='row'";
@@ -7,12 +9,8 @@ function switchFormCorrelation($datas, $collapse = FALSE, $idCollapse = NULL)
   echo "<div $collapse>";
   foreach ($datas as $data) {
 ?>
-    <div class="col-4">
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="<?php echo $data->getId() ?>" name="switch_<?php echo $data->getName() ?>" value="<?php echo $data->getId() ?>">
-        <?php $label = strlen($data->getName()) > 40 ? substr($data->getName(), 0, 36) . " ..." : $data->getName() ?>
-        <label class="custom-control-label" for="<?php echo $data->getId() ?>" title="<?php echo $data->getName() ?>"><?php echo $label ?></label>
-      </div>
+    <div class="col-xl-4 col-12">
+      <?php switchForm($data->getId(), $data->getName()) ?>
     </div>
 <?php
   }

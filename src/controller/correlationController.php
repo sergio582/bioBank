@@ -17,13 +17,11 @@ if (isset($_POST['get_correlation'])) {
   $results = Correlation::getBy($attrs, $values);
 
   $resultSend = array();
+  $phenotype1 = Phenotype::getBy('id', $values);
 
   foreach ($results as $res) {
     $t = array();
     foreach ($phenotypes as $ph) {
-      if ($res->getId1() == $ph->getId()) {
-        $t['id1'] = $ph->getName();
-      }
       if ($res->getId2() == $ph->getId()) {
         $t['id2'] = $ph->getName();
       }
@@ -34,6 +32,7 @@ if (isset($_POST['get_correlation'])) {
   }
 
   $_SESSION['datas'] = $resultSend;
+  $_SESSION['phenotype1'] = $phenotype1[0]->getName();
   header('Location:' . $_SERVER['HTTP_REFERER']);
 }
 

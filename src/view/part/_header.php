@@ -15,7 +15,6 @@ function headView($title)
     <link rel="stylesheet" href="public/bootstrap-4.5.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/fontawesome-free-5.15.1/css/all.css">
     <link rel="stylesheet" href="public/jquery/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="public/chartjs/Chart.min.css">
   </head>
 
   <body>
@@ -32,7 +31,6 @@ function footView()
     <script src="public/jquery/jquery.dataTables.min.js"></script>
     <script src="public/bootstrap-4.5.3/js/bootstrap.min.js"></script>
     <script src="public/jquery/dataTables.bootstrap4.min.js"></script>
-    <script src="public/chartjs/Chart.min.js"></script>
     <script src="public/fontawesome-free-5.15.1/js/all.js"></script>
   </body>
 

@@ -12,17 +12,15 @@ navigation('correlations');
 ?>
 <div class="container">
   <h1 class="text-secondary mt-3"><i class="fas fa-dna text-info"></i> Phénotypes <button type="button" class="btn btn-light" data-toggle="collapse" data-target="#phenotypes"><i class="fas fa-sort-down"></i></button></h1>
-  <?php switchFormCorrelation($phenotypes, TRUE, 'phenotypes') ?>
+  <?php formCorrelation($phenotypes, TRUE, 'phenotypes') ?>
 </div>
 
 <?php
 if (isset($_SESSION['datas'])) {
   $datas = $_SESSION['datas'];
 ?>
-  <div class="container">
-    <canvas id="correlationChart" height="150"></canvas>
-  </div>
   <div class="container mt-3">
+    <h3>Corrélations avec : <?php echo $_SESSION['phenotype1'] ?></h3>
     <?php tableCorrelations($_SESSION['datas']) ?>
   </div>
 <?php
@@ -30,8 +28,8 @@ if (isset($_SESSION['datas'])) {
 footView();
 ?>
 
-<!-- js for jquery datatable -->
 <script>
+  //js for jquery datatable
   $(document).ready(function() {
     table = $('#tableCorrelations').DataTable({
       "lengthMenu": [
@@ -48,55 +46,5 @@ footView();
       }
     });
     $('.dataTables_length').addClass('bs-select');
-
-    datas = []
-
-    $.ajax({
-      type: "POST",
-      url: "control/correlations",
-      data: {
-        get_ajax: ""
-      },
-      dataType: 'json',
-
-      success: function(results) {
-        x = 0
-        results.forEach(element => datas.push({
-          x: x++,
-          y: parseFloat(element['rg']) * 100
-        }))
-      }
-    });
-
-    //set graph
-    var scatterChartData = {
-      datasets: [{
-        label: 'My First dataset',
-        borderColor: 'rgba(78, 83, 240, 0.1)',
-        backgroundColor: 'rgba(78, 83, 240, 0.1)',
-        data: datas
-      }]
-    };
-
-    var ctx = document.getElementById('correlationChart').getContext('2d');
-    window.myScatter = Chart.Scatter(ctx, {
-      data: scatterChartData,
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              suggestedMin: -100,
-              suggestedMax: 100
-            }
-          }],
-          xAxes: [{
-            ticks: {
-              suggestedMin: 0,
-              suggestedMax: 700
-            }
-          }]
-        }
-      }
-    });
   });
 </script>
